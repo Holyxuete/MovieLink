@@ -45,6 +45,7 @@ public class FilmServlet extends HttpServlet {
 			
 			FilmMapper mapper = session.getMapper(FilmMapper.class);
 			
+			// 通过反射调用对应的方法
 			Method method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class,HttpServletResponse.class,FilmMapper.class);
 			method.invoke(this,request,response,mapper);
 			
@@ -58,12 +59,25 @@ public class FilmServlet extends HttpServlet {
 	
 	// 搜索电影
 	public void search(HttpServletRequest request, HttpServletResponse response,FilmMapper mapper) throws ServletException, IOException{
+		// 获取输入框的内容
 		String title = request.getParameter("filmTitle");
-		ArrayList<Film> films = mapper.search(title);
+		// 获取被选中的下拉列表项
+		String val = request.getParameter("type");
+		// 存放结果的集合
+		ArrayList<Film> films = new ArrayList<>();
+		switch(val) {
+			case "title" : films = mapper.searchTitle(title);break;
+			case "director" : films = mapper.searchDirec(title);break;
+			case "genre" : films = mapper.searchGenre(title);break;
+			case "time" : films = mapper.searchTime(title);break;
+		}
+		// 将所有电影的 magnetURI 属性拆分成一个集合并存入对应的实体类中
 		for(Film film : films) {
 			film.setURIList(film.getMagnetURI().split("\\*"));
 		}
+		// 将查询的结果存入session中
 		request.getSession().setAttribute("films", films);
+		// 重定向到搜索页面
 		response.sendRedirect(request.getContextPath() + "/search.jsp");
 	}
 	public void testSearch(HttpServletRequest request, HttpServletResponse response,FilmMapper mapper) throws ServletException, IOException{

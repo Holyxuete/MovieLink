@@ -108,5 +108,110 @@ $(function() {
 	    ]};
 	if (option2 && typeof option2 === "object") {
 		genre.setOption(option2, true);
-	}
+	};
+	
+	// 拍片前10导演
+    var director = echarts.init(document.getElementById("director"),'dark');
+    var app = {};
+    option = null;
+    var dataAxis = ['郭子圣','园子温','叶念琛','洪尚秀','埃里克·侯麦','王晶','阿基·考里斯马基','吕克贝松','佩德罗·阿莫多瓦','山田洋次','伍迪·艾伦',];
+    var data = [9,9,10,11,19,23,14,11,11,9,9];
+    var yMax = 30;
+    var dataShadow = [];
+
+    for (var i = 0; i < data.length; i++) {
+        dataShadow.push(yMax);
+    }
+
+    option = {
+        title: {
+            text: '拍片数量前10导演',
+        },
+        xAxis: {
+            data: dataAxis,
+            axisLabel: {
+                inside: true,
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            z: 10
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#999'
+                }
+            }
+        },
+        dataZoom: [
+            {
+                type: 'inside'
+            }
+        ],
+        series: [
+            { // For shadow
+                type: 'bar',
+                itemStyle: {
+                    normal: {color: 'rgba(0,0,0,0.05)'}
+                },
+                barGap:'-100%',
+                barCategoryGap:'40%',
+                data: dataShadow,
+                animation: false
+            },
+            {
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#83bff6'},
+                                {offset: 0.5, color: '#188df0'},
+                                {offset: 1, color: '#188df0'}
+                            ]
+                        )
+                    },
+                    emphasis: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#2378f7'},
+                                {offset: 0.7, color: '#2378f7'},
+                                {offset: 1, color: '#83bff6'}
+                            ]
+                        )
+                    }
+                },
+                data: data
+            }
+        ]
+    };
+
+    // Enable data zoom when user click bar.
+    var zoomSize = 6;
+    director.on('click', function (params) {
+//        console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+        director.dispatchAction({
+            type: 'dataZoom',
+            startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+            endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+        });
+    });;
+    if (option && typeof option === "object") {
+    	director.setOption(option, true);
+    }
 })

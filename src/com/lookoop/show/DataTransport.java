@@ -22,7 +22,7 @@ public class DataTransport {
 			
 			FilmMapper mapper = (FilmMapper) session.getMapper(FilmMapper.class);
 			
-			ArrayList<Film> list = mapper.search("的");
+			ArrayList<Film> list = mapper.searchTitle("的");
 			
 			for(Film f : list) {
 				System.out.println(f);

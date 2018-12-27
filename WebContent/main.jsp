@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Grandin I Fast build Admin dashboard for any platform</title>
+	<title>TypeMoon</title>
 	<meta name="description" content="Grandin is a Dashboard & Admin Site Responsive Template by hencework." />
 	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Grandin Admin, Grandinadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
 	<meta name="author" content="hencework"/>
@@ -40,7 +40,7 @@
 					<div class="logo-wrap">
 						<a href="main.jsp">
 							<img class="brand-img" src="../img/logo.png" alt="brand"/>
-							<span class="brand-text">Grandin</span>
+							<span class="brand-text">TypeMoon</span>
 						</a>
 					</div>
 				</div>	
@@ -59,7 +59,7 @@
 					<a href="web1.jsp" data-toggle="collapse" data-target="#ui_dr">
 						<div class="pull-left">
 							<i class="zmdi zmdi-smartphone-setup mr-20"></i>
-							<span class="right-nav-text">UI Elements</span>
+							<span class="right-nav-text">年份语言</span>
 						</div>
 						<div class="pull-right"></div>
 						<div class="clearfix"></div>
@@ -69,18 +69,8 @@
 					<a href="web2.jsp" data-toggle="collapse" data-target="#form_dr">
 						<div class="pull-left">
 							<i class="zmdi zmdi-edit mr-20"></i>
-							<span class="right-nav-text">Forms</span>
+							<span class="right-nav-text">导演编剧数据表</span>
 						</div><div class="pull-right"></div>
-						<div class="clearfix"></div>
-					</a>
-				</li>
-				<li>
-					<a href="web3.jsp" data-toggle="collapse" data-target="#chart_dr">
-						<div class="pull-left">
-							<i class="zmdi zmdi-chart-donut mr-20"></i>
-							<span class="right-nav-text">Charts </span>
-						</div>
-						<div class="pull-right"></div>
 						<div class="clearfix"></div>
 					</a>
 				</li>
@@ -88,24 +78,14 @@
 					<a href="web4.jsp" data-toggle="collapse" data-target="#table_dr">
 						<div class="pull-left">
 							<i class="zmdi zmdi-format-size mr-20"></i>
-							<span class="right-nav-text">Tables</span>
+							<span class="right-nav-text">国家地图</span>
 						</div>
 						<div class="pull-right"></div>
 						<div class="clearfix"></div>
 					</a>
 				</li>
 				<li>
-					<a href="web5.jsp" data-toggle="collapse" data-target="#icon_dr">
-						<div class="pull-left">
-							<i class="zmdi zmdi-iridescent mr-20"></i>
-							<span class="right-nav-text">Icons</span>
-						</div>
-						<div class="pull-right"></div>
-						<div class="clearfix"></div>
-					</a>
-				</li>
-				<li>
-					<a href="filmSearch.jsp" data-toggle="collapse" data-target="#maps_dr">
+					<a href="search.jsp" data-toggle="collapse" data-target="#maps_dr">
 						<div class="pull-left">
 							<i class="zmdi zmdi-map mr-20"></i>
 							<span class="right-nav-text">Film Search</span>
@@ -120,25 +100,25 @@
 		<div class="page-wrapper">
             <div class="container-fluid pt-25">
 				<div class="row">
-			    	<div class="col-lg-6">
-							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">polar area Chart</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
-										<canvas id="chart_4" height="200"></canvas>
-									</div>	
-								</div>
-							</div>
-						</div>
-					
 					<div class="col-lg-6">
 						<div id="durations" style="width:620px;height:435px;"></div>
 					</div>	
+					
+			    	<div class="col-lg-6">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h2 class="panel-title txt-dark">片长排名前六</h2>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<canvas id="chart_4" height="200"></canvas>
+								</div>	
+							</div>
+						</div>
+					</div>
 				</div>
 				
 				

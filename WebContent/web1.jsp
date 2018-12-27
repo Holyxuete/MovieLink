@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>web1</title>
+	<title>年份语言</title>
 	<meta name="description" content="Grandin is a Dashboard & Admin Site Responsive Template by hencework." />
 	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Grandin Admin, Grandinadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
 	<meta name="author" content="hencework"/>
@@ -24,14 +23,14 @@
 				<!-- Title -->					
 				<div class="row heading-bg">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-					  <h5 class="txt-dark">æ°æ®åæé¡µé¢ä¸</h5>
+					  <!-- <h5 class="txt-dark"></h5> -->
+					  <h5>年份语言数据表</h5>
 					</div>
 					<!-- Breadcrumb -->
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 					  <ol class="breadcrumb">
-						<li><a href="main.jsp">Dashboard</a></li>
-						<li><a href="#"><span>table</span></a></li>
-						<li class="active"><span>RSPV DataTable</span></li>
+						<li><a href="main.jsp">Return</a></li>
+						<li class="active"><span>年份语言</span></li>
 					  </ol>
 					</div>
 					
@@ -39,7 +38,7 @@
 				<!-- /Title -->
 				
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="col-lg-6" style="margin-left:0px;">
 						<div class="panel panel-default card-view panel-refresh">
 							<div class="refresh-container">
 								<div class="la-anim-1"></div>
@@ -58,103 +57,16 @@
 						</div>
 					</div>
 					
-					<div class="col-lg-6">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">composite line Chart</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<div class="flot-container" style="height:200px">
-										<div id="flot_line_chart" class="demo-placeholder"></div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
+					<div id="language" style="width:620px;height:420px;float:left"></div>
 				</div>	
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">pie Chart</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<div class="flot-container" style="height:250px">
-										<div id="flot_pie_chart" class="demo-placeholder"></div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-					<div class="col-lg-6">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">filled line Chart</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<div class="flot-container" style="height:200px">
-										<div id="flot_line_chart_moving" class="demo-placeholder"></div>
-									</div>
-								</div>
-							</div>	
-						</div>	
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">bar Chart</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<div class="flot-container" style="height:200px">
-										<div id="flot_bar_chart" class="demo-placeholder"></div>
-									</div>
-								</div>
-							</div>	
-						</div>	
-					</div>
-					<div class="col-lg-6">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">stacked bar Chart</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<div class="flot-container" style="height:200px">
-										<div id="sales_bars_chart" class="demo-placeholder"></div>
-									</div>
-								</div>
-							</div>	
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			
 			<!-- Footer -->
 			<footer class="footer container-fluid pl-30 pr-30">
 				<div class="row">
 					<div class="col-sm-12">
-						<p>2018 &copy; Grandin. Pampered byæå¨ é¾å© éå¹³è¾ å­ç»´æ°</p>
+						<p>2018 &copy; TypeMoon. created by 李威,龚利,钟平辉,孙维新</p>
 					</div>
 				</div>
 			</footer>
@@ -163,7 +75,6 @@
 		</div>
 		<!-- /Main Content -->
 
-    </div>
     <!-- /#wrapper -->
 	
 	<!-- JavaScript -->
@@ -214,6 +125,9 @@
 	<script src="full-width-light/dist/js/dashboard-data.js"></script>
 	<script src="full-width-light/dist/js/chartjs-data.js"></script>
 	<script src="vendors/chart.js/Chart.min.js"></script>
+	<script src="js/data3.js"></script>
+	<script src="js/echarts.min.js"></script>
+	
 	
 </body>
 

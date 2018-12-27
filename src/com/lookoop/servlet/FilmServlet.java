@@ -31,16 +31,16 @@ public class FilmServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		// »ñÈ¡ÇëÇóÂ·¾¶
+		// è·å–è¯·æ±‚è·¯å¾„
 		String servletPath = request.getServletPath();
-		// ½ØÈ¡·½·¨Ãû
+		// æˆªå–è¯·æ±‚åç§°
 		String methodName = servletPath.substring(1, servletPath.length() - 3);
 		
 		try {
-			// ¹¹½¨»á»°¹¤³§
+			// æ„é€ ä¼šè¯å·¥å‚
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("config.xml"));
 			
-			// ´ò¿ª»á»°
+			// æ‰“å¼€ä¼šè¯
 			SqlSession session = factory.openSession();
 			
 			FilmMapper mapper = session.getMapper(FilmMapper.class);
@@ -56,7 +56,7 @@ public class FilmServlet extends HttpServlet {
 		}
 	}
 	
-	// ¸ù¾İ±êÌâ²éÑ¯Ó°Æ¬
+	// æœç´¢ç”µå½±
 	public void search(HttpServletRequest request, HttpServletResponse response,FilmMapper mapper) throws ServletException, IOException{
 		String title = request.getParameter("filmTitle");
 		ArrayList<Film> films = mapper.search(title);
@@ -65,5 +65,10 @@ public class FilmServlet extends HttpServlet {
 		}
 		request.getSession().setAttribute("films", films);
 		response.sendRedirect(request.getContextPath() + "/search.jsp");
+	}
+	public void testSearch(HttpServletRequest request, HttpServletResponse response,FilmMapper mapper) throws ServletException, IOException{
+		String str = request.getParameter("testSearch");
+		System.out.println(str);
+		response.sendRedirect(request.getContextPath() + "/test.jsp");
 	}
 }

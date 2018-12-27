@@ -15,7 +15,7 @@ public class Spider {
 		// TODO Auto-generated method stub
 		try {
 			// 获取页面
-			Document document = Jsoup.connect(url).timeout(1000).get();
+			Document document = Jsoup.connect(url).get();
 			// 获取页面所有电影
 			Elements allMovie = document.select(".update_area_lists li");
 			// 遍历电影集合
@@ -78,9 +78,10 @@ public class Spider {
 				f.setMagnetURI(getMagnets(doc));
 				
 				// 海报
-				String posterPath = doc.selectFirst(".img-thumbnail").attr("src");
+				String posterPath = ""; 
+//				posterPath = doc.selectFirst(".img-thumbnail").attr("src");
+				posterPath = film.selectFirst("a>img").attr("data-original");
 				f.setPosterPath(posterPath);
-				
 				list.add(f);
 			}
 		} catch (Exception e) {

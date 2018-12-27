@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.myselfSearch{
+	/* font:25px; */
+	line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+	height: calc(2.25rem + 2px);
+	padding:0.375rem 0.75rem;
+	border:1px solid #ced4da;
+	border-radius: 0.25rem;
+}
+.myfloat{
+	float:left;
+}
+.mydata{
+	/* margin-left:100px; */
+	float:left;
+}
+/*style="background-image:url('img/joker.jpg');background-repeat: no-repeat;background-attachment:fixed;color:white!important;"*/
+.mybody{
+	background-image:url('img/joker.jpg');
+	background-attachment:fixed;
+	color:white!important;
+}
+.nicescroll-bar li{
+	margin-top:50px;
+}

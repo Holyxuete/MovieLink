@@ -25,7 +25,7 @@ public class Main {
 		// Ä¿±êurl
 		String url = "http://www.dybee.co/movie/page/";
 		
-		for(int i = 9; i < 11; i++) {
+		for(int i = 360; i < 375; i++) {
 			String path = String.format("%s%d", url,i);
 			pool.submit(new ThreadSpider(path, list));
 		}
@@ -64,7 +64,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		String file = "F://poster//data2.csv";
+		String file = "F://poster//data29.csv";
 		try(FileWriter out = new FileWriter(file)){
 			for(Film f : list) {
 				out.write(f.toCSV());
